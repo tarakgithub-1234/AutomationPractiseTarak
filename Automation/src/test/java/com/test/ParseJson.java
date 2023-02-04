@@ -28,7 +28,7 @@ public void parseJson() {
     	  System.out.println("the value " +name);
     }
 }
-@Test(priority=0,enabled=true)
+@Test(priority=1,enabled=false)
 public void parsexml() {
 	Response rs=given().contentType(ContentType.XML).when().get("http://restapi.adequateshop.com/api/Traveler?page=1");
    // Assert.assertEquals(rs.getStatusCode(),200);
@@ -40,5 +40,33 @@ public void parsexml() {
 
 
 }
+@Test(priority=2,enabled=false)
+public void authenticationxml() {
+	
+	given().auth().basic("postman", "password").get("https://postman-echo.com/basic-auth").then().log().all();
+  
+
+}
+@Test(priority=3,enabled=false)
+public void premptiveauthenticationxml() {
+	
+	Response rs =given().auth().preemptive().basic("postman", "password").get("https://postman-echo.com/basic-auth");
+   System.out.print("the value is " +rs.getStatusCode());
+  String value= rs.jsonPath().get("authenticated").toString();
+  System.out.print("the value is " +value);
+  JSONObject js=new JSONObject(rs.asString());
+ String val= js.get("authenticated").toString();
+  System.out.print("the value is " +val);
+}
+@Test(priority=3,enabled=true)
+public void bearertokenauthenticationxml() {
+	
+	given().auth().preemptive().basic("postman", "password").get("https://postman-echo.com/basic-auth").then().log().all();
+   
+
+
+}
+	
+	
 	
 }

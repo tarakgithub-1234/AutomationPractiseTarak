@@ -5,7 +5,7 @@
     <classes>
       <class name="com.test.ParseJson">
         <methods>
-          <include name="parseJson"/>
+          <include name="premptiveauthenticationxml"/>
         </methods>
       </class> <!-- com.test.ParseJson -->
     </classes>
