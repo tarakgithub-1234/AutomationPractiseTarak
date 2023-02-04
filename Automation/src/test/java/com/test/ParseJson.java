@@ -62,7 +62,7 @@ public void premptiveauthenticationxml() {
 public void bearertokenauthenticationxml() {
 	
 	given().auth().preemptive().basic("postman", "password").get("https://postman-echo.com/basic-auth").then().log().all();
-   
+	System.out.print("adding changes);
 
 
 }
